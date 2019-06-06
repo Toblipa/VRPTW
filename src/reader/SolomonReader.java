@@ -67,18 +67,22 @@ public class SolomonReader {
 		}
 		else if (counter == 10) {
 			// origin node
-			if(this.file.contains("_25")) {
-				this.instance.setCustomers(new Customer[26]);
+			if (this.file.contains("_100")){
+				this.instance.setCustomers(new Customer[101]);
 			}
 			else if(this.file.contains("_50")) {
 				this.instance.setCustomers(new Customer[51]);
 			}
+			else if(this.file.contains("_25")) {
+				this.instance.setCustomers(new Customer[26]);
+			}
+			else if(this.file.contains("_10")) {
+				this.instance.setCustomers(new Customer[11]);
+			}
 			else if(this.file.contains("_5")) {
 				this.instance.setCustomers(new Customer[6]);
 			}
-			else {
-				this.instance.setCustomers(new Customer[101]);
-			}
+
 			readCustomer(tokens);
 		}
 		else if (counter > 10 && tokens.length == 7){

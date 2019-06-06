@@ -92,7 +92,6 @@ public class Solver {
 	 * @throws UnknownObjectException
 	 * @throws IloException
 	 */
-	@SuppressWarnings("unused")
 	private void displayRoutesResult(IloCplex cplex, IloNumVar[][][] x) throws UnknownObjectException, IloException {
         System.out.println("Solution:");
         
@@ -130,7 +129,7 @@ public class Solver {
         	System.out.println("");
         }
         
-        System.out.println("Total cost:" + cplex.getObjValue());
+        System.out.println("Total cost: " + cplex.getObjValue());
 	}
 
 
@@ -218,7 +217,7 @@ public class Solver {
 			}
 			
 			cplex.addLe(expression, this.instance.getCapacity());
-		}	
+		}
 	}
 	
 	/**
@@ -280,8 +279,7 @@ public class Solver {
 			}
 
 			cplex.addGe(expression, 1.0);
-		}
-		
+		}	
 	}
 	
 	/**
