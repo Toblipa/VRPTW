@@ -12,16 +12,13 @@ public class Main {
 	
 	public static void solomonVRPTW() {
 		VrptwInstance instance = new VrptwInstance();
-		String file = "instances/solomon_25/R104.txt";
+		String directory = "instances/solomon_100/";
+		String file = "R101.txt";
+		int nbClients = 25;
 		
-		SolomonReader reader = new SolomonReader(instance, file);		
-		reader.read();
+		SolomonReader reader = new SolomonReader(instance, directory+file);		
+		reader.read(nbClients);
 		instance.build();
-		
-//		printCostMatrix(instance.getCost());
-		
-		// We reduce the number of vehicles
-		instance.setVehicles(10);
 		
 		Solver solver = new Solver(instance);	
 		solver.solveVRPTW();

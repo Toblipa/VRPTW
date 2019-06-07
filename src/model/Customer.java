@@ -1,13 +1,9 @@
 package model;
 
 public class Customer {
-	/**
-	 * Abscisse du point
-	 */
+	
 	private double x;
-	/**
-	 * Ordonnee du point
-	 */
+
 	private double y;
 
 	private int customerId;
@@ -19,35 +15,21 @@ public class Customer {
 	private double end;
 
 	private double serviceTime;
-
-	/**
-	 * Constructeur par defaut : abscisse et ordonnee sont nuls
-	 */
+	
 	public Customer() {
 		this.x = 0;
 		this.y = 0;
 	}
-
-	/**
-	 * Constructeur par copie
-	 * @param x l'abscisse du point
-	 * @param y l'ordonnee du point
-	 */
+	
 	public Customer(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
-
-	/**
-	 * @return l'abscisse du point
-	 */
+	
 	public double getX() {
 		return x;
 	}
-
-	/**
-	 * @return l'ordonnée du point
-	 */
+	
 	public double getY() {
 		return y;
 	}
@@ -96,12 +78,11 @@ public class Customer {
 	public void setServiceTime(double serviceTime) {
 		this.serviceTime = serviceTime;
 	}
-
-
+	
 	/**
-	 * Calcul de la distance euclidienne entre deux points (this et p).
-	 * @param p le point avec lequel on cherche la distance
-	 * @return la distance euclidienne entre les points, infini si p est null.
+	 * Euclidian distance
+	 * @param p
+	 * @return
 	 */
 	public double distance (Customer p) {
 		if(p==null) {

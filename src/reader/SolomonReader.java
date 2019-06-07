@@ -17,16 +17,20 @@ public class SolomonReader {
 		this.file = file;
 	}
 
-	public void read() {
+	/**
+	 * 
+	 * @param nbClients
+	 */
+	public void read(int nbClients) {
 		try {
 			FileReader reader = new FileReader(this.file);
 			BufferedReader br = new BufferedReader(reader);
 
 			int counter = 0;
 			String line;
-			while ((line = br.readLine()) != null) {
+			while ((line = br.readLine()) != null && counter < nbClients+10) {
 				counter++;
-				this.readInstace(line, counter);
+				this.readInstace(line, counter, nbClients);
 			}
 
 			br.close();
@@ -56,7 +60,7 @@ public class SolomonReader {
 		this.instance.setCapacity( Double.parseDouble(tokens[1]) );
 	}
 
-	private void readInstace(String line, int counter) {
+	private void readInstace(String line, int counter, int nbClients) {
 
 		line = line.replace("\r", "");
 		line = line.trim();
@@ -67,21 +71,7 @@ public class SolomonReader {
 		}
 		else if (counter == 10) {
 			// origin node
-			if (this.file.contains("_100")){
-				this.instance.setCustomers(new Customer[101]);
-			}
-			else if(this.file.contains("_50")) {
-				this.instance.setCustomers(new Customer[51]);
-			}
-			else if(this.file.contains("_25")) {
-				this.instance.setCustomers(new Customer[26]);
-			}
-			else if(this.file.contains("_10")) {
-				this.instance.setCustomers(new Customer[11]);
-			}
-			else if(this.file.contains("_5")) {
-				this.instance.setCustomers(new Customer[6]);
-			}
+			this.instance.setCustomers(new Customer[nbClients+1]);
 
 			readCustomer(tokens);
 		}
