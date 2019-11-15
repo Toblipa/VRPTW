@@ -14,10 +14,13 @@ public class Main {
 		VrptwInstance instance = new VrptwInstance();
 		String directory = "instances/solomon_100/";
 		String file = "R101.txt";
-		int nbClients = 25;
+		int nbClients = 15;
+		int nbVehicles = 5;
+
 		
 		SolomonReader reader = new SolomonReader(instance, directory+file);		
 		reader.read(nbClients);
+		instance.setVehicles(nbVehicles);
 		instance.build();
 		
 		Solver solver = new Solver(instance);	
